@@ -9,15 +9,15 @@
 			//Initialize Root Node & Read Records From File & Send Data to Insert Function
 			void ReadRecord(NodeRecords *& Root);
 			//Create a new BST node
-            NodeRecords* newNode(int acct_number5, string last_name5, char middle_initial5, 
+                        NodeRecords* newNode(int acct_number5, string last_name5, char middle_initial5, 
 			              string first_name5, unsigned int month5, unsigned int day5, unsigned int year5, 
 			              float annual_salary5, char dept_code5, string phone_number5);
-		    //Insert Recieved Data into Binary Tree by Account #
+		        //Insert Recieved Data into Binary Tree by Account #
 			NodeRecords* Insert(NodeRecords *&, int acct_number2, string last_name2, char middle_initial2, 
 			             string first_name2, unsigned int month2, unsigned int day2, unsigned int year2, 
-						 float annual_salary2, char dept_code2, string phone_number2);
-            //BUILD THE BST
-            void ReadFileRecords(NodeRecords *);
+				     float annual_salary2, char dept_code2, string phone_number2);
+                        //BUILD THE BST
+                        void ReadFileRecords(NodeRecords *);
 			//Search for Record in BST (Checking for Duplicates)
 			bool SearchBST(int, NodeRecords*&);
 			//Prompt for & Validate Account Number
@@ -39,7 +39,7 @@
 			//Prompt for & Validate Department Code 
 			void GetDepartmentCode(char& );
 			//Prompt for Phone Number 
-		    void GetPhoneNumber(string&);
+		        void GetPhoneNumber(string&);
 			//Validate Phone Number
 			void ValidatePhoneNumber(string&);
 			//Call PrintSubtitles() & PrintInOrder() to Print BST Subtitles & Contents
@@ -61,7 +61,7 @@
 			//Assign Pointer to new Data
 			void ModifyData(NodeRecords *&, int acct_number2, string last_name2, char middle_initial2, 
 			                string first_name2, unsigned int month2, unsigned int day2, unsigned int year2, 
-						    float annual_salary2, char dept_code2, string phone_number2);
+				        float annual_salary2, char dept_code2, string phone_number2);
 			//Pause the System
 			void Pause();
 			//Press Any Key To Continue
