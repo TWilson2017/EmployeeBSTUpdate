@@ -14,7 +14,11 @@ when it is launched. The program must display the following MENU:
 
 
 A)   To Add an New Record
+
 M)   To MODIFY a Record
+
 P)   To Print a Report In-Order
+
 S)   Save Changes {write current BST to MASTER FILE}
+
 Q)   Quit [Exit System]
