@@ -30,16 +30,16 @@ void NodeRecords :: ReadRecord(NodeRecords *& Root)
 	char middle_initial3 = ' ', dept_code3 = ' '; 
 	unsigned int month3 = 0, day3 = 0, year3 = 0;
 	float annual_salary3 = 0.00;
-    static int Counter = 0; //Variable to keep track of entering data from file into BST
+        static int Counter = 0; //Variable to keep track of entering data from file into BST
 	ifstream inF; //Variable to Enter Data from File into BST
 
 	//Open File
 	inF.open("MASTER");
 	
-    //Test File For Error
+       //Test File For Error
 	if(inF.fail())
 	{
-		   cout << endl << "FATAL ERROR: UNABLE TO OPEN FILE \"MASTER\" TERMINATING..."
+           cout << endl << "FATAL ERROR: UNABLE TO OPEN FILE \"MASTER\" TERMINATING..."
                 << endl << endl;
            exit (1);
 	}//if
@@ -54,7 +54,7 @@ void NodeRecords :: ReadRecord(NodeRecords *& Root)
 		{
 				//Read in Data from File
 				while(inF >> acct_number3 >> last_name3 >> middle_initial3 >> first_name3 >> month3 
-						  >> day3 >> year3 >> annual_salary3 >> dept_code3 >> phone_number3)
+					  >> day3 >> year3 >> annual_salary3 >> dept_code3 >> phone_number3)
 				{
 					//Check to see if the Account Number or the Annual Salary is Negative
 					if(acct_number3 < 0 || annual_salary3 < 0.00)
@@ -71,7 +71,7 @@ void NodeRecords :: ReadRecord(NodeRecords *& Root)
 					
 						//Send Data to Insert() Funtion
 						Root = Insert(Root, acct_number3, last_name3, middle_initial3, first_name3, month3, day3, year3, 
-							   annual_salary3, dept_code3, phone_number3);
+							     annual_salary3, dept_code3, phone_number3);
 					}//else
 				}//while		
 			//Ignore Until End 
@@ -132,7 +132,7 @@ void NodeRecords :: ReadRecord(NodeRecords *& Root)
 			
 				//Once Data Passes each test, Send Data to Insert() Funtion
 				Root = Insert(Root, acct_number3, last_name3, middle_initial3, first_name3, month3, day3, year3, 
-					   annual_salary3, dept_code3, phone_number3);
+					      annual_salary3, dept_code3, phone_number3);
 			
 				//Count the Total Records Inputted into BST
 				TotalRecords++;
@@ -149,8 +149,8 @@ void NodeRecords :: ReadRecord(NodeRecords *& Root)
 //-| 3. Create a new BST NodeRecords
 //-|--------------------------------
 NodeRecords* NodeRecords :: newNode(int acct_number5, string last_name5, char middle_initial5, 
-			                        string first_name5, unsigned int month5, unsigned int day5, unsigned int year5, 
-			                        float annual_salary5, char dept_code5, string phone_number5)
+			            string first_name5, unsigned int month5, unsigned int day5, unsigned int year5, 
+			             float annual_salary5, char dept_code5, string phone_number5)
 {
 	//Create a temp node & Assign Inserted to temp
 	NodeRecords *temp = new NodeRecords();
@@ -158,7 +158,7 @@ NodeRecords* NodeRecords :: newNode(int acct_number5, string last_name5, char mi
 	temp->last_name = last_name5;
 	temp->middle_initial = middle_initial5;
 	temp->first_name = first_name5;
-    temp->month = month5;
+        temp->month = month5;
 	temp->day = day5;
 	temp->year = year5;
 	temp->annual_salary = annual_salary5;
@@ -173,8 +173,8 @@ NodeRecords* NodeRecords :: newNode(int acct_number5, string last_name5, char mi
 //-| 4. Insert Recieved Data into Binary Tree by Account #
 //-|-----------------------------------------------------------------
 NodeRecords* NodeRecords :: Insert(NodeRecords *& PtrRoot,int acct_number2, string last_name2, char middle_initial2,
-						    string first_name2, unsigned int month2, unsigned int day2, unsigned int year2, 
-			                float annual_salary2, char dept_code2, string phone_number2)
+				   string first_name2, unsigned int month2, unsigned int day2, unsigned int year2, 
+			           float annual_salary2, char dept_code2, string phone_number2)
 {	
 	//if PtrRoot == NULL, return new node
 	if(PtrRoot == NULL)
@@ -217,11 +217,11 @@ void NodeRecords :: GetAccountNumber(int & AccountNumber)
 		if((PhoneNumber2[i] >= '0' && PhoneNumber2[i] <= '9') == false)
 		{
 			cin.clear(); // clears error flags
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignore until maxed/newline is reached
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //ignore until maxed/newline is reached
 			
 			//Re-Prompt for Account Number
  			cout << "Enter Account Number: ";
-	        cin >> PhoneNumber2;
+	                cin >> PhoneNumber2;
 		}//if
 		else
 		{
@@ -230,7 +230,7 @@ void NodeRecords :: GetAccountNumber(int & AccountNumber)
 		}//else
     }//while
 	
-	//Create a object from the class stringstream to convert string into integer
+    //Create a object from the class stringstream to convert string into integer
     stringstream Convert(PhoneNumber2);
  
     //Stream value into AccountNumber
@@ -262,11 +262,11 @@ bool NodeRecords :: SearchBST(int Account_Number, NodeRecords *&Root)
 			
             //Else, Account Number is less than Root's Account Number. SO, Search left side of Tree
 			else
-				Temp = Temp->left_child;
+			   Temp = Temp->left_child;
         }//Outer-else
     }//while
 	
-	//If Account Number is not found, return false
+    //If Account Number is not found, return false
     return false;
 }//SearchBST
 
@@ -361,11 +361,11 @@ bool NodeRecords :: isValidDate(unsigned int month, unsigned int day, unsigned i
 	const int MIN_YEAR = 1800;
 	
 	 // If year, month and day are not in given range, return false
-    if (year > MAX_YEAR || year < MIN_YEAR)
+    if(year > MAX_YEAR || year < MIN_YEAR)
       return false;
  
     //Handle February month with leap year
-    if (month == 2)
+    if(month == 2)
     {
         if (isLeap(year))
            return (day <= 29);
@@ -374,10 +374,10 @@ bool NodeRecords :: isValidDate(unsigned int month, unsigned int day, unsigned i
     }//if
  
     //Handle the months of April, June, Sept and Nov.
-    if (month == 4 || month == 6 || month == 9 || month == 11)
+    if(month == 4 || month == 6 || month == 9 || month == 11)
         return (day <= 30);
  
-	//Return true, if date is valid
+    //Return true, if date is valid
     return true;
 }//isValidDate
 
@@ -392,29 +392,29 @@ bool NodeRecords :: CheckDate(unsigned int Month, unsigned int Day, unsigned int
 	
 	//Return False If Today's Year Is Less Than or Equal To File's Year
 	if((ltm->tm_year + 1900) < Year)
-		return false;
+	   return false;
 	
 	//Return False If Today's Month Is Less Than or Equal To User's Input Month, Today's Day Is Less Than User's Input, 
 	//and Today's Year Is Less Than or Equal To User's Input 
 	//(e.g - Today: 2/19/2018 ----> User's Input Date: 2/20/2018)
 	else if((ltm->tm_mon + 1) <= Month && (ltm->tm_mday) < Day && (ltm->tm_year + 1900) <= Year)
-		return false;
+	   return false;
 	
 	//Return False If Today's Month Is Less Than User's Input Month, Today's Day Is Less Than User's Input Day, 
 	//and Today's Year Is Less Than or Equal To User's Input Year 
 	//(e.g - Today: 2/21/2018 ----> User's Input Date: 2/27/2018)
 	else if((ltm->tm_mon + 1) < Month && (ltm->tm_mday) < Day && (ltm->tm_year + 1900) <= Year)
-		return false;
+	   return false;
 	
 	//Return False If Today's Month Is Less Than User's Input Month, Today's Day Is Less Than or Equal To User's Input Day, 
 	//and Today's Year Is Less Than or Equal To User's Input Year 
 	//(e.g - Today: 2/19/2018 ----> User's Input Date: 3/19/2018)
 	else if((ltm->tm_mon + 1) < Month && (ltm->tm_mday) <= Day && (ltm->tm_year + 1900) <= Year)
-		return false;
+	   return false;
 	
 	//Return True if User's Input Date Doesn't FAIL Test
 	else 
-		return true;
+	   return true;
 }//CheckDate
 		
 //-|------------------------------------
@@ -569,22 +569,22 @@ string NodeRecords :: DateConversion(int Month)
 {
 	//Declare Array of Month Abbreviations
 	const string DateAbbr[12] = {"Jan. ", "Feb. ", "Mar. ", "Apr. ", 
-		                         "May ", "Jun. ", "Jul. ", "Aug. ", 
-						         "Sep. ", "Oct. ", "Nov. ", "Dec. "};
+		                     "May ", "Jun. ", "Jul. ", "Aug. ", 
+				     "Sep. ", "Oct. ", "Nov. ", "Dec. "};
 	
    //Use Switch to return the respective Date Abbreviation
    switch(Month)
    {
 	   case 1: return DateAbbr[0];
-		       break;
+		           break;
 	   case 2: return DateAbbr[1];
-		       break;
+		           break;
 	   case 3: return DateAbbr[2];
-		       break;
+		           break;
 	   case 4: return DateAbbr[3];
 			   break;
 	   case 5: return DateAbbr[4];
-		       break;
+		           break;
 	   case 6: return DateAbbr[5];
 			   break;
 	   case 7: return DateAbbr[6];
@@ -592,15 +592,15 @@ string NodeRecords :: DateConversion(int Month)
 	   case 8: return DateAbbr[7];
 			   break;
 	   case 9: return DateAbbr[8];
-		       break;
+		           break;
 	   case 10: return DateAbbr[9];
 			   break;
 	   case 11: return DateAbbr[10];
-				break;
+		           break;
 	   case 12: return DateAbbr[11];
-				break;
+			   break;
 	   default: return ("Wrong Month Inserted....");
-		        break;
+		           break;
    }//Switch
 }//DateConversion
 
@@ -611,9 +611,9 @@ void NodeRecords :: PrintSubtitles()
 {
 	    //Print Title & Subtitles
 	    cout << setw(50) << "Employee Report" << endl << endl;
-		cout << left << setw(6) << "Acct#" << right << setw(12) << "Last Name" 
-			 << right << setw(13) << "First Name" << right << setw(17) << "Date of birth"
-			 << right << setw(19) << "Annual Salary" << right << setw(22) << "Department Code" << endl; 
+	    cout << left << setw(6) << "Acct#" << right << setw(12) << "Last Name" 
+		 << right << setw(13) << "First Name" << right << setw(17) << "Date of birth"
+		 << right << setw(19) << "Annual Salary" << right << setw(22) << "Department Code" << endl; 
 		
 }//PrintSubtitles
 	
@@ -639,10 +639,10 @@ void NodeRecords :: PrintInOrder(NodeRecords *PtrRoot)
 		//Visit the Root
 		cout << setfill('0') << setw(3) << PtrRoot->acct_number;
 		cout << setfill(' ') << right << setw(12) << PtrRoot->last_name << right << setw(12) 
-			 << PtrRoot->first_name << right << setw(12) << DateConversion(PtrRoot->month)
-			 << PtrRoot->day << ", " << PtrRoot->year << right << setw(7) << '\t' << '$' 
-			 << fixed << setprecision(2)  << PtrRoot->annual_salary << right << setw(14) 
-			 << '\t' << PtrRoot->dept_code << endl;
+		     << PtrRoot->first_name << right << setw(12) << DateConversion(PtrRoot->month)
+		     << PtrRoot->day << ", " << PtrRoot->year << right << setw(7) << '\t' << '$' 
+		     << fixed << setprecision(2)  << PtrRoot->annual_salary << right << setw(14) 
+		     << '\t' << PtrRoot->dept_code << endl;
 			
 		//Traverse through the right-subtree
 		PrintInOrder(PtrRoot->right_child);
@@ -665,10 +665,10 @@ bool NodeRecords :: SavePrintLevels(NodeRecords *PtrRoot, int Level, ostream& Ou
 		{
 			OutF << setfill('0') << setw(3) << PtrRoot->acct_number;
 			OutF << setfill(' ') << right << setw(12) << PtrRoot->last_name << right << setw(12) 
-				 << PtrRoot->middle_initial << setw(12) << PtrRoot->first_name << right 
-				 << setw(12) <<PtrRoot->month << setw(11) << PtrRoot->day << setw(11) << PtrRoot->year 
-				 << right << setw(7) << '\t' << '$' << fixed << setprecision(2) << PtrRoot->annual_salary << right << setw(4) 
-				 << '\t' << PtrRoot->dept_code << right << setw(18) << PtrRoot->phone_number << endl;
+			     << PtrRoot->middle_initial << setw(12) << PtrRoot->first_name << right 
+			     << setw(12) <<PtrRoot->month << setw(11) << PtrRoot->day << setw(11) << PtrRoot->year 
+			     << right << setw(7) << '\t' << '$' << fixed << setprecision(2) << PtrRoot->annual_salary << right << setw(4) 
+			     << '\t' << PtrRoot->dept_code << right << setw(18) << PtrRoot->phone_number << endl;
 			return true;
 		}//if
 		
@@ -708,10 +708,8 @@ void NodeRecords :: LevelOrder(NodeRecords *PtrRoot)
 	
 	//Clear the File
 	OutF.clear();
-	
 	//Flush the File
 	OutF.flush();
-	
 	//Close Out File
 	OutF.close();
 	//Call Pause() Function
@@ -740,11 +738,11 @@ NodeRecords* NodeRecords :: SearchBSTNODE(int Account_Number, NodeRecords* Root)
 		{
 			//Else if, Account Number is greater than Root's Account Number, then, search right side of Tree
 			if(Account_Number > Temp->acct_number)
-				Temp = Temp->right_child;
+			   Temp = Temp->right_child;
 			
             //Else, Account Number is less than Root's Account Number. SO, Search left side of Tree
 			else
-				Temp = Temp->left_child;
+			   Temp = Temp->left_child;
         }//Outer-else
     }//while
 	
@@ -824,15 +822,15 @@ void NodeRecords :: Modify(NodeRecords * PtrRoot)
 //-| 28. Assign Pointer to new Data
 //-|-------------------------------
 void NodeRecords :: ModifyData(NodeRecords *& PtrRoot, int acct_number2, string last_name2, char middle_initial2, 
-			                   string first_name2, unsigned int month2, unsigned int day2, unsigned int year2, 
-						       float annual_salary2, char dept_code2, string phone_number2)
+			       string first_name2, unsigned int month2, unsigned int day2, unsigned int year2, 
+		               float annual_salary2, char dept_code2, string phone_number2)
 {
 	//Create a new pointer & allocate its memory
 	NodeRecords *temp = new NodeRecords;
 	
 	//Create a new BST Record by calling newNode() Function
     temp = newNode(acct_number2, last_name2, middle_initial2, first_name2, month2, day2, year2, annual_salary2, 
-				   dept_code2, phone_number2);
+		   dept_code2, phone_number2);
 	
 	//Assign temp's data to PtrRoot's data
 	PtrRoot->last_name = temp->last_name;
@@ -879,5 +877,5 @@ void NodeRecords :: DestroyTree(NodeRecords * Tree)
       DestroyTree(Tree->left_child);
       DestroyTree(Tree->right_child);
       delete Tree;
-   }
-}
+   }//if
+}//DestroyTree
