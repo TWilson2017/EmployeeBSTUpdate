@@ -92,7 +92,7 @@ int main()
 	   //Check for Commands that are out of Boundaries
 	   while((Command != 'A') && (Command != 'M') && (Command != 'P') && (Command != 'S') && (Command != 'Q'))
 	   {
-			  cout << "Error <Re-Enter Valid Option>: ";
+		      cout << "Error <Re-Enter Valid Option>: ";
 		      cin >> Command;
 		      Command = toupper(Command);
 	   }//while
@@ -105,7 +105,7 @@ int main()
 	   
 	   // Prompt for & enter in another Command
 	   cout << "Enter Option: ";
-       cin >> Command;
+           cin >> Command;
 	   Command = toupper(Command);
 	   
    }while(isCommand == true);//do-while
