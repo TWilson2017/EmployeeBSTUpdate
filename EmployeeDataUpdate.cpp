@@ -25,7 +25,7 @@ static int TotalRecords = 0; //Global Variable that counts the Total Records
 void NodeRecords :: ReadRecord(NodeRecords *& Root)
 {
 	//Declare Variables
-    int acct_number3 = 0; 
+        int acct_number3 = 0; 
 	string last_name3 = "", first_name3 = "", phone_number3 = "";
 	char middle_initial3 = ' ', dept_code3 = ' '; 
 	unsigned int month3 = 0, day3 = 0, year3 = 0;
@@ -150,7 +150,7 @@ void NodeRecords :: ReadRecord(NodeRecords *& Root)
 //-|--------------------------------
 NodeRecords* NodeRecords :: newNode(int acct_number5, string last_name5, char middle_initial5, 
 			            string first_name5, unsigned int month5, unsigned int day5, unsigned int year5, 
-			             float annual_salary5, char dept_code5, string phone_number5)
+			            float annual_salary5, char dept_code5, string phone_number5)
 {
 	//Create a temp node & Assign Inserted to temp
 	NodeRecords *temp = new NodeRecords();
@@ -530,12 +530,12 @@ void NodeRecords :: ValidatePhoneNumber(string &PhoneNumber2)
 		
 		//Check for if Phone Number Contains Dashes
 		else if(PhoneNumber2[i] == '-')
-			//Count DashesCounter by 1
-			DashesCounter++;
+		   //Count DashesCounter by 1
+		   DashesCounter++;
 
 		//Else, the User Input is not a Phone Number
 		else
-			isPhoneNumber2 = false;
+		    isPhoneNumber2 = false;
 					
 		//Iterate i by 1
 		i++;	
@@ -557,7 +557,7 @@ void NodeRecords :: PrintBST(NodeRecords *Root)
 {
 	//Call PrintSubtitles, PrintInOrder(OutF,NodeRecords *PtrRoot), TotalRecordsProcessed & Close the OutF File
 	PrintSubtitles();
-    PrintInOrder(Root);
+        PrintInOrder(Root);
 	TotalRecordsProcessed();
 	PressAnyKey();
 }//PrintBST
@@ -689,9 +689,10 @@ bool NodeRecords :: SavePrintLevels(NodeRecords *PtrRoot, int Level, ostream& Ou
 //-|--------------------------------------------------
 void NodeRecords :: LevelOrder(NodeRecords *PtrRoot)
 {
+	//Declare ofstream object
 	ofstream OutF;
+	//Open File
 	OutF.open("MASTER");
-	
 	
 	//Check for if PtrRoot is NULL, if so, exit out of function
 	if(PtrRoot == NULL)
@@ -734,7 +735,7 @@ NodeRecords* NodeRecords :: SearchBSTNODE(int Account_Number, NodeRecords* Root)
 			return Temp;
         
 		//Check either the Right Tree OR Left Tree
-        else 
+                else 
 		{
 			//Else if, Account Number is greater than Root's Account Number, then, search right side of Tree
 			if(Account_Number > Temp->acct_number)
@@ -756,7 +757,7 @@ NodeRecords* NodeRecords :: SearchBSTNODE(int Account_Number, NodeRecords* Root)
 void NodeRecords :: Modify(NodeRecords * PtrRoot)
 {
 	//Declare Variables
-    int acct_number3 = 0; 
+        int acct_number3 = 0; 
 	string last_name3 = "", first_name3 = "", phone_number3 = "";
 	char middle_initial3 = ' ', dept_code3 = ' '; 
 	unsigned int month3 = 0, day3 = 0, year3 = 0;
